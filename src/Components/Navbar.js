@@ -10,14 +10,17 @@ const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                background:"#3498e1",
+                color:'#fff',
+                padding:'10px'
             }}
         >
-            <span className="logo">REDUX STORE</span>
-            <div style={{marginRight:'50px'}}>
-                <Link className="navLink" to="/">
+            <span className="logo">Logo Goes Here</span>
+            <div style={{marginRight:'110px', color:'#fff'}}>
+                <Link className="navLink" to="/" style={{color:'#fff'}}>
                     Home
                 </Link>
-                <Link className="navLink" to="/cart">
+                <Link className="navLink" to="/cart" style={{color:'#fff'}}>
                     Cart (<span>{items.length}</span>)
                 </Link>
                 

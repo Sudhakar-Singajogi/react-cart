@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <div className="container-fluid row">
+        <div className="row">
           <div className="col-md-2">
             <LeftMenu />
           </div>

@@ -26,7 +26,7 @@ const Home = (props) => {
   }
 
   return (
-    <div className="container-fluid">
+    <div className="">
       <div className="products">
         <div class="row home-prdcts">
           {products.map((product, index) => {

@@ -81,3 +81,18 @@ margin-top: 10px;
 .leftMenu ul li a { 
   padding-top: 10px; 
 }
+
+/* .card:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+} */
+
+.card {
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
