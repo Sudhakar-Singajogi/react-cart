@@ -1,0 +1,83 @@
+/* .products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+} */
+.home-prdcts .col-md-2 {
+  padding: 0px !important;
+}
+
+.products .card-title {
+   width: 180px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.prd-title {
+    width: 250px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.productInfo .card-title {
+    width: 30rem !important; 
+    font-size: 16px;
+}
+
+.prd-cost {
+  font-size: 14px;
+}
+
+.btn-success {
+  background-color: #37d737;
+}
+
+.cartWrapper {
+  position: relative; 
+}
+
+footer.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  /* width: 100%; */
+  height: 85px; /* Adjust this value to match the desired height of the footer */
+  background-color: #f5f5f5;
+}
+
+footer.sticky-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.products .row {
+  margin-left: 0px !important;
+}
+
+.row .home-prdcts .col-md-2 {
+  width:231px!important
+}
+
+
+.leftMenu {
+margin-top: 10px;
+}
+
+.leftMenu ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.leftMenu ul li {
+  display: grid;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.leftMenu ul li a { 
+  padding-top: 10px; 
+}
