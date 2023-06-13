@@ -27,18 +27,18 @@ const Home = (props) => {
   return (
     <div className="">
       <div className="products">
-        <div class="row home-prdcts">
+        <div className="row home-prdcts">
           {products.map((product, index) => {
             if(!category) {
               return (
-                <div class="col-md-2" key={product.id}>
+                <div className="col-md-2" key={product.id}>
                   <Product params={{ 'products': { ...product }, category }} />
                 </div>
               );
             } else {
               if (product.category === category) {
                 return (
-                  <div class="col-md-2" key={product.id}>
+                  <div className="col-md-2" key={product.id}>
                     <Product params={{ 'products': { ...product }, category }} />
                   </div>
                 );

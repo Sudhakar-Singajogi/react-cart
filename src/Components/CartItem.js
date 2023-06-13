@@ -19,7 +19,7 @@ function CartItem(product) {
       </td>
       <td>
         <Link className="navLink" to={`/product-details/${product.id}`}>
-          <h5 class="prd-title" title={product.name}>
+          <h5 className="prd-title" title={product.name}>
             {product.name}
           </h5>
         </Link>
@@ -73,7 +73,7 @@ function CartItem(product) {
 //         </span>
 //         <span>
 //           <Link className="navLink" to={`/product-details/${product.id}`}>
-//             <h5 class="prd-title" title={product.name}>
+//             <h5 className="prd-title" title={product.name}>
 //               {product.name}
 //             </h5>
 //           </Link>
