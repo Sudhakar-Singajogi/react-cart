@@ -7,8 +7,7 @@ import Product from "../Components/Product";
 const Home = (props) => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.product);
-  const products = data;
-  console.log('props are', props);
+  const products = data; 
   let category = props.params ? props.params.category.toLowerCase() : null
   if(category) {
     category = category.replace("-", " ");

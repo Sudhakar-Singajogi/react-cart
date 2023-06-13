@@ -1,24 +1,16 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getItemsSelector } from "../redux/slices/cartSlice";
 import CartItem from "./CartItem";
-
+import CartCost from "./CartCost";
 const Cart = () => {
   const items = useSelector(getItemsSelector);
+  console.log('cart items are:', items) 
 
-  let total = items.reduce((a, b) => a + b.quantityPrice, 0);
-  total = total.toFixed(2);
   return (
     <>
-      <div
-        className="alert alert-success"
-        style={{ textAlign: "right", marginTop: "10px" }}
-      >
-        <h6>
-          Total Items: {items.length} (Rs. {total})/-
-        </h6>
-      </div>
-      <h3>Cart</h3>
+       
+      <h3 className="mt-3">Cart</h3>
       <table className="table table-responsive">
         <thead>
           <th>Image</th>
@@ -35,7 +27,7 @@ const Cart = () => {
                   key={product.id}
                   style={{ fontWeight: "bold" }}
                 > 
-                <CartItem {...product} />
+                <CartItem key={product.id} {...product} />
                 </tr>
               </>
             );  

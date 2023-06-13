@@ -7,12 +7,13 @@ import Home from "./pages/Home";
 import ProductInfo from "./pages/ProductInfo";
 import LeftMenu from "./Components/LeftMenu";
 import CategoryProducts from "./pages/CategoryProducts";
-
+import CartCost from "./Components/CartCost";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
+          <CartCost /> 
         <div className="row">
           <div className="col-md-2">
             <LeftMenu />
@@ -31,6 +32,7 @@ function App() {
                 element={<CategoryProducts />}
               ></Route>
             </Routes>
+            
           </div>
         </div>
       </BrowserRouter>

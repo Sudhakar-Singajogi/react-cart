@@ -7,29 +7,19 @@ import { useSelector } from "react-redux";
 
 import AddToCartButton from "../Components/AddToCartButton";
 
-const Product = (properties) => {
-  // console.log(props)
-  const props = properties.params.products;
-  const category = properties.params.category;
-  console.log('category:', category)
-  const items = useSelector((state) => state.cart);
-  console.log("items are:", items);
+const Product = (properties) => { 
+  const props = properties.params.products; 
+  const items = useSelector((state) => state.cart); 
 
   const [isAdded, setIsAdded] = useState([]);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [items]);
+  useEffect(() => {
+    console.log('cart tiems are:', items)
+  }, [items]);
 
   useEffect(() => {}, [isAdded]);
-
-  const handleAddCart = (prdObj) => {
-    dispatch(addItem(prdObj));
-    let inCart = CheckProductAdded(prdObj.id.toString(), items);
-    if (!inCart) {
-      setIsAdded((prev) => [...prev, { id: prdObj.id }]);
-    }
-  };
-
+  
   const getPrdInCart = (prdid) => {
     let obj = { id: prdid, inCart: false };
 
@@ -39,6 +29,16 @@ const Product = (properties) => {
       }
     });
     return obj;
+  };
+
+  const handleAddCart = (prdObj) => {
+    console.log('prdObj:', prdObj)
+    dispatch(addItem(prdObj));
+    
+    let inCart = CheckProductAdded(prdObj.id.toString(), items);
+    if (!inCart) {
+      setIsAdded((prev) => [...prev, { id: prdObj.id }]);
+    }
   };
 
   return (
@@ -51,26 +51,11 @@ const Product = (properties) => {
           <h5 className="card-title" title={props.title}>{props.title}</h5>
         </Link>
         <p className="card-text prd-cost">Rs. {props.price}/-</p>
-        <AddToCartButton
+         <AddToCartButton
           isAdded={getPrdInCart(props.id)}
           handleAddCart={handleAddCart}
           productInfo={props}
-        />
-        {/* <button
-          onClick={(e) =>
-            handleAddCart({
-              name: props.title,
-              price: props.price,
-              quantityPrice: props.price,
-              image: props.image,
-              id: props.id,
-              count: 1,
-            })
-          }
-          className="btn btn-primary"
-        >
-          Add to cart
-        </button> */}
+        />  
       </div>
     </div>
   );

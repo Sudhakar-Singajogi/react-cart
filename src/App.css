@@ -96,3 +96,16 @@ margin-top: 10px;
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
+
+.sticky-note {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  transform: translateY(-50%);
+  transform: translateX(09%);
+  color: #fff;
+  background-color: #e6de41;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
