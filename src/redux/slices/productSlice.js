@@ -54,9 +54,26 @@ const productSlice = createSlice({
         state.status = STATUSES.ERROR;
         state.inCart = false;
         state.productInfo={};
+      })
+      .addCase(productSortByPrice.pending, (state, action) => {
+        state.data = [];
+        state.productInfo = {};
+        state.status = STATUSES.PENDING;
+      })
+      .addCase(productSortByPrice.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.productInfo = {};
+        state.status = STATUSES.IDLE;
+      })
+      .addCase(productSortByPrice.rejected, (state, action) => {
+        state.data = [];
+        state.productInfo = {};
+        state.status = STATUSES.ERROR;
       });
+      ;
+
   },
-});
+}); 
 
 console.log("product actions are:", productSlice);
 
@@ -78,6 +95,10 @@ export const fetchAProduct = createAsyncThunk(
     return data;
   }
 );
+
+export const productSortByPrice = createAsyncThunk("products/sortbyprice", async (products) => { 
+  return products;
+});
 
 //if you want to use the reducer then uncomment the below and also comment the above
 

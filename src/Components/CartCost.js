@@ -5,7 +5,7 @@ import { getItemsSelector } from "../redux/slices/cartSlice";
 function CartCost() {
   const items = useSelector(getItemsSelector);
   console.log('cart tiems are:', items);
-
+ 
   const subtotal = useMemo(() => {
     console.time("subtotal");
     let total = 0;

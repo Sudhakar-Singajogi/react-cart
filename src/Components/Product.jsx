@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { addItem } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,28 +6,30 @@ import { CheckProductAdded } from "../Utils/CartBL";
 import { useSelector } from "react-redux";
 
 import AddToCartButton from "../Components/AddToCartButton";
+import CartItems from "./CartItems"; 
 
 const Product = (properties) => { 
   const props = properties.params.products; 
-  const items = useSelector((state) => state.cart); 
-
+  const cartitems = properties.params.cartItems; 
+  // const items = useSelector((state) => state.cart); 
   const [isAdded, setIsAdded] = useState([]);
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch(); 
+  const cartItems = properties.params.cartItems(); 
+  
   useEffect(() => {
-    console.log('cart tiems are:', items)
-  }, [items]);
+    console.log('cart tiems are:', cartItems)
+  }, [cartItems]);
 
   useEffect(() => {}, [isAdded]);
   
   const getPrdInCart = (prdid) => {
     let obj = { id: prdid, inCart: false };
-
-    items.map((prd) => {
+    cartItems.map((prd) => {
       if (prd.id === prdid) {
         obj.inCart = true;
       }
-    });
+    })
+
     return obj;
   };
 
@@ -35,7 +37,7 @@ const Product = (properties) => {
     console.log('prdObj:', prdObj)
     dispatch(addItem(prdObj));
     
-    let inCart = CheckProductAdded(prdObj.id.toString(), items);
+    let inCart = CheckProductAdded(prdObj.id.toString(), cartItems);
     if (!inCart) {
       setIsAdded((prev) => [...prev, { id: prdObj.id }]);
     }
